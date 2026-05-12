@@ -1,0 +1,14 @@
+services:
+  snell:
+    image: ghcr.io/moorigin/snell:latest
+    container_name: snell
+    restart: always
+    network_mode: host
+    volumes:
+      - ./config/snell.conf:/etc/snell-server.conf:ro
+      - snell-runtime:/opt/snell
+    environment:
+      SNELL_URL: "https://dl.nssurge.com/snell/snell-server-v5.0.1-linux-amd64.zip"
+
+volumes:
+  snell-runtime:
